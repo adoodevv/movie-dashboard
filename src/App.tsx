@@ -1,7 +1,14 @@
-const App = () => {
+import React from 'react';
+import RightSideBar from './components/RightSideBar';
+import LeftSideBar from './components/LeftSideBar';
+
+const App: React.FC = () => {
   return (
-    <div>App</div>
-  )
+    <div>
+      <LeftSideBar />
+      <RightSideBar />
+    </div>
+  );
 }
 
-export default App
+export default App;
