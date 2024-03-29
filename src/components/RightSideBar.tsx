@@ -3,25 +3,24 @@ import React from 'react';
 const RightSideBar: React.FC = () => {
    return (
       <div className="right-sidebar">
-         <div className="search-bar">
-            <input type="text" placeholder="Search movies" />
-            <button>Search</button>
+         <div className="search-bar flex items-center rounded-full bg-white">
+            <input type="text" placeholder="Search" className="pl-8 pr-4 py-2 rounded-full border border-gray-300" />
          </div>
-         <div className="menu-header">
-            <h2>Popular Movies</h2>
+         <div className="menu-header mt-5">
+            <h2 className="font-bold">Popular Movies</h2>
             <ul>
                <li>Avengers</li>
                <li>Spiderman</li>
             </ul>
-            <button>See More</button>
+            <button className="bg-red-500 text-white py-2 px-4 rounded-lg mt-2">See More</button>
          </div>
-         <div className="social-header">
-            <h2>Favorites</h2>
+         <div className="social-header mt-5">
+            <h2 className="font-bold ">Favorites</h2>
             <ul>
                <li>Avengers</li>
                <li>Spiderman</li>
             </ul>
-            <button>See More</button>
+            <button className="bg-red-500 text-white py-2 px-4 rounded-lg mt-2">See More</button>
          </div>
       </div>
    );
