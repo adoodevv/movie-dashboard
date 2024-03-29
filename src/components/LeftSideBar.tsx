@@ -7,28 +7,53 @@ import {
 
 const LeftSideBar: React.FC = () => {
    return (
-      <div className="right-sidebar">
-         <h1>Exxmon.</h1>
-         <div className="menu-header"></div>
-         <h2>Menu</h2>
-         <ul>
-            <li><FontAwesomeIcon icon={faHouse} /> Community</li>
-            <li><FontAwesomeIcon icon={faSearch} /> Discovery</li>
-            <li><FontAwesomeIcon icon={faCalendarAlt} /> Coming Soon</li>
-         </ul>
-         <div className="social-header">
-            <h2>Social</h2>
+      <div className="left-sidebar">
+         <h1 className="text-2xl font-bold mt-4 mb-8 ml-4">Exxmon.</h1>
+         <div className="menu-header mb-4">
+            <h2 className="text-lg font-bold ml-4">Menu</h2>
             <ul>
-               <li><FontAwesomeIcon icon={faUserFriends} /> Friends</li>
-               <li><FontAwesomeIcon icon={faGlassCheers} /> Parties</li>
-               <li><FontAwesomeIcon icon={faPhotoVideo} /> Media</li>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faHouse} className="text-red-500 mr-2" />
+                  <span className="font-light">Community</span>
+               </li>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faSearch} className="text-red-500 mr-2" />
+                  <span className="font-light">Discovery</span>
+               </li>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faCalendarAlt} className="text-red-500 mr-2" />
+                  <span className="font-light">Coming Soon</span>
+               </li>
             </ul>
          </div>
-         <div className="general-header">
-            <h2>General</h2>
+         <div className="social-header mt-8">
+            <h2 className="text-lg font-bold ml-4">Social</h2>
             <ul>
-               <li><FontAwesomeIcon icon={faCog} /> Settings</li>
-               <li><FontAwesomeIcon icon={faSignOutAlt} /> Logout</li>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faUserFriends} className="text-red-500 mr-2" />
+                  <span className="font-light">Friends</span>
+               </li>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faGlassCheers} className="text-red-500 mr-2" />
+                  <span className="font-light">Parties</span>
+               </li>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faPhotoVideo} className="text-red-500 mr-2" />
+                  <span className="font-light">Media</span>
+               </li>
+            </ul>
+         </div>
+         <div className="general-header mt-8">
+            <h2 className="text-lg font-bold ml-4">General</h2>
+            <ul>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faCog} className="text-red-500 mr-2" />
+                  <span className="font-light">Settings</span>
+               </li>
+               <li className="flex items-center py-2 px-4">
+                  <FontAwesomeIcon icon={faSignOutAlt} className="text-red-500 mr-2" />
+                  <span className="font-light">Logout</span>
+               </li>
             </ul>
          </div>
       </div>
