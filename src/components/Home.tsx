@@ -23,9 +23,9 @@ const Home: React.FC = () => {
                   className="w-64 h-auto mr-4"
                />
                <div>
-                  <h2 className="text-2xl font-bold">Movie Title</h2>
-                  <p className="text-gray-600">Genre</p>
-                  <p className="text-gray-600">Match: 80%</p>
+                  <h2 className="text-4xl font-bold">JUMANJI</h2>
+                  <p className="text-gray-600">ACTION, ADVENTURE, COMEDY</p>
+                  <p className="text-gray-600">94% Match</p>
                   <button className="bg-red-500 text-white py-2 px-4 rounded mr-2">
                      Watch
                   </button>
@@ -38,14 +38,28 @@ const Home: React.FC = () => {
             <div className="mt-8">
                <h3 className="text-xl font-bold">Best Artists</h3>
                <div className="grid grid-cols-4 gap-4 mt-4">
-                  
+                  <div>
+                     <img
+                        src="path_to_image.jpg"
+                        alt="Artist Name"
+                        className="w-32 h-auto"
+                     />
+                     <p className="text-gray-600">Artist Name</p>
+                  </div>
                </div>
             </div>
 
             <div className="mt-8">
                <h3 className="text-xl font-bold">Continue Watching</h3>
                <div className="grid grid-cols-4 gap-4 mt-4">
-                  
+                  <div>
+                     <img
+                        src="path_to_image.jpg"
+                        alt="Movie Name"
+                        className="w-32 h-auto"
+                     />
+                     <p className="text-gray-600">Movie Name</p>
+                  </div>
                </div>
             </div>
          </div>
