@@ -7,7 +7,7 @@ import {
 
 const LeftSideBar: React.FC = () => {
    return (
-      <div className="left-sidebar">
+      <div className=" container left-sidebar mx-12">
          <h1 className="text-2xl font-bold mt-4 mb-8">
             <FontAwesomeIcon icon={faFilm} className="text-red-500 mr-2 ml-4" />
             Exxmon.
