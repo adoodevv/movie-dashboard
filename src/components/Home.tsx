@@ -1,8 +1,14 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from 'react';
 
 const Home: React.FC = () => {
+   const [movies, setMovies] = useState([]);
+
+   useEffect(() => {
+      fetch('https://api.themoviedb.org/3/movie/popular?api_key=8734c4766281aca839b34feac6c89390')
+         .then(response => response.json())
+         .then(data => setMovies(data.results));
+   }, []);
+
    return (
       <div className="container mx-auto">
          <header className="flex justify-between items-center py-4">
@@ -14,53 +20,19 @@ const Home: React.FC = () => {
                </ul>
             </nav>
          </header>
-
          <div className="mt-8">
-            <div className="flex items-center mb-4">
-               <img
-                  src="path_to_big_image.jpg"
-                  alt="Movie Title"
-                  className="w-64 h-auto mr-4"
-               />
-               <div>
-                  <h2 className="text-4xl font-bold">JUMANJI</h2>
-                  <p className="text-gray-600">ACTION, ADVENTURE, COMEDY</p>
-                  <p className="text-gray-600">94% Match</p>
-                  <button className="bg-red-500 text-white py-2 px-4 rounded mr-2">
-                     Watch
-                  </button>
-                  <button className="bg-gray-200 text-gray-600 py-2 px-4 rounded">
-                     <FontAwesomeIcon icon={faPlus} className="mr-2" />
-                  </button>
-               </div>
-            </div>
-
-            <div className="mt-8">
-               <h3 className="text-xl font-bold">Best Artists</h3>
-               <div className="grid grid-cols-4 gap-4 mt-4">
-                  <div>
+            <h3 className="text-xl font-bold">Popular Movies</h3>
+            <div className="grid grid-cols-4 gap-4 mt-4">
+               {movies.slice(0, 4).map((movie: any) => (
+                  <div key={movie.id}>
                      <img
-                        src="path_to_image.jpg"
-                        alt="Artist Name"
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        alt={movie.title}
                         className="w-32 h-auto"
                      />
-                     <p className="text-gray-600">Artist Name</p>
+                     <p className="text-gray-600">{movie.title}</p>
                   </div>
-               </div>
-            </div>
-
-            <div className="mt-8">
-               <h3 className="text-xl font-bold">Continue Watching</h3>
-               <div className="grid grid-cols-4 gap-4 mt-4">
-                  <div>
-                     <img
-                        src="path_to_image.jpg"
-                        alt="Movie Name"
-                        className="w-32 h-auto"
-                     />
-                     <p className="text-gray-600">Movie Name</p>
-                  </div>
-               </div>
+               ))}
             </div>
          </div>
       </div>
