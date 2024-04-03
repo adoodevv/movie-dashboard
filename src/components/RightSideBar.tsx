@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 interface Movie {
    id: number;
@@ -17,7 +15,7 @@ interface Genre {
 const RightSideBar: React.FC = () => {
    const [movies, setMovies] = useState<Movie[]>([]);
    const [genres, setGenres] = useState<Genre[]>([]);
-   const [favorites, setFavorites] = useState<Movie[]>([]); // New state variable for favorite movies
+   const [favorites, setFavorites] = useState<Movie[]>([]);
 
    useEffect(() => {
       fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=8734c4766281aca839b34feac6c89390')
@@ -47,7 +45,6 @@ const RightSideBar: React.FC = () => {
    return (
       <div className="right-sidebar mx-12">
          <div className="search-bar flex items-center rounded-full bg-white mt-4 mb-8">
-            <FontAwesomeIcon icon={faSearch} className="text-gray-500 mr-4" />
             <input type="text" placeholder="Search" className="pl-8 w-full py-1 rounded-full border border-gray-300" />
          </div>
          <div className="popular-movies">

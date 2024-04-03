@@ -51,7 +51,7 @@ const Home: React.FC = () => {
    };
 
    return (
-      <div className="container mx-auto">
+      <div className="home-movies mx-12">
          <header className="flex justify-between items-center py-4">
             <nav>
                <ul className="flex space-x-4">
