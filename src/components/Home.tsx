@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
 interface Movie {
    id: number;
@@ -69,7 +71,9 @@ const Home: React.FC = () => {
                   className="w-full h-auto rounded-3xl"
                />
                <div className="absolute top-0 right-0 text-white p-4">
-                  <button className="bg-gray-600 bg-opacity-50 text-white px-4 py-2 rounded-full items-center hover:bg-gray-700">&gt;</button>
+                  <button className="bg-gray-600 bg-opacity-50 text-white px-4 py-2 rounded-full items-center hover:bg-gray-700">
+                     <FontAwesomeIcon icon={faChevronRight} className="text-white" />
+                  </button>
                </div>
                <div className="absolute bottom-0 left-0 p-4">
                   <h2 className="text-4xl font-bold text-white">{featuredMovie.title}</h2>
@@ -86,8 +90,12 @@ const Home: React.FC = () => {
             <div className="flex justify-between items-center">
                <h3 className="text-l text-gray-600 font-bold">Upcoming Movies</h3>
                <div className="buttons">
-                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200">&lt;</button>
-                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200 ml-4">&gt;</button>
+                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200">
+                     <FontAwesomeIcon icon={faChevronLeft} className="text-gray-600" />
+                  </button>
+                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200 ml-4">
+                     <FontAwesomeIcon icon={faChevronRight} className="text-gray-600" />
+                  </button>
                </div>
             </div>
             <div className="grid grid-cols-4 gap-4 mt-4">
@@ -107,8 +115,12 @@ const Home: React.FC = () => {
             <div className="flex justify-between items-center">
                <h3 className="text-l text-gray-600 font-bold">Now Playing</h3>
                <div className="buttons">
-                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200">&lt;</button>
-                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200 ml-4">&gt;</button>
+                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200">
+                     <FontAwesomeIcon icon={faChevronLeft} className="text-gray-600" />
+                  </button>
+                  <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200 ml-4">
+                     <FontAwesomeIcon icon={faChevronRight} className="text-gray-600" />
+                  </button>
                </div>
             </div>
             <div className="grid grid-cols-4 gap-4 mt-4">
