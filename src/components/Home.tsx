@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 interface Movie {
    id: number;
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
                />
                <div className="absolute top-0 right-0 text-white p-4">
                   <button className="bg-gray-600 bg-opacity-50 text-white px-4 py-2 rounded-full items-center hover:bg-gray-700">
-                     <FontAwesomeIcon icon={faChevronRight} className="text-white" />
+                     <FontAwesomeIcon icon={faAngleRight} className="text-white" />
                   </button>
                </div>
                <div className="absolute bottom-0 left-0 p-4">
@@ -81,8 +81,10 @@ const Home: React.FC = () => {
                      <p className="text-l text-gray-200">{getGenres(featuredMovie.genre_ids).toUpperCase()}</p>
                      <p className="text-white ml-4">%{Math.ceil(featuredMovie.vote_average * 10)} Match</p>
                   </div>
-                  <button className="bg-red-600 text-white py-2 px-4 rounded-lg mt-4">Watch</button>
-                  <button className="bg-gray-600 bg-opacity-50 text-white py-2 px-4 rounded-lg mt-4 ml-4">+</button>
+                  <button className="bg-red-600 text-white py-2 px-4 rounded-lg mt-4 hover:scale-105">Watch</button>
+                  <button className="bg-gray-600 bg-opacity-50 text-white py-2 px-4 rounded-lg mt-4 ml-4 hover:scale-105">
+                     <FontAwesomeIcon icon={faPlus} className="text-white" />
+                  </button>
                </div>
             </div>
          )}
@@ -91,10 +93,10 @@ const Home: React.FC = () => {
                <h3 className="text-l text-gray-600 font-bold">Upcoming Movies</h3>
                <div className="buttons">
                   <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200">
-                     <FontAwesomeIcon icon={faChevronLeft} className="text-gray-600" />
+                     <FontAwesomeIcon icon={faAngleLeft} className="text-gray-600" />
                   </button>
                   <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200 ml-4">
-                     <FontAwesomeIcon icon={faChevronRight} className="text-gray-600" />
+                     <FontAwesomeIcon icon={faAngleRight} className="text-gray-600" />
                   </button>
                </div>
             </div>
@@ -116,10 +118,10 @@ const Home: React.FC = () => {
                <h3 className="text-l text-gray-600 font-bold">Now Playing</h3>
                <div className="buttons">
                   <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200">
-                     <FontAwesomeIcon icon={faChevronLeft} className="text-gray-600" />
+                     <FontAwesomeIcon icon={faAngleLeft} className="text-gray-600" />
                   </button>
                   <button className="border-2 border-gray-600 text-gray-600 px-2 rounded-full items-center hover:bg-gray-200 ml-4">
-                     <FontAwesomeIcon icon={faChevronRight} className="text-gray-600" />
+                     <FontAwesomeIcon icon={faAngleRight} className="text-gray-600" />
                   </button>
                </div>
             </div>
