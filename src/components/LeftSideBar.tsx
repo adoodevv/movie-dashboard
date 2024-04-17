@@ -1,17 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-   faSearch, faHouse, faStopwatch, faUserFriends, faCity,
-   faGlassCheers, faPhotoVideo, faCog, faSignOutAlt, faFilm
-} from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHouse, faStopwatch, faUserFriends, faCity,
+   faGlassCheers, faPhotoVideo, faCog, faSignOutAlt, faFilm } from '@fortawesome/free-solid-svg-icons';
 
 const LeftSideBar: React.FC = () => {
    return (
       <div className="left-sidebar ml-12">
-         <h1 className="text-xl font-bold mt-4 mb-8">
-            <FontAwesomeIcon icon={faFilm} className="text-red-500 mr-2 ml-4" />
-            Exxmon.
-         </h1>
+         <div className="flex items-center text-xl font-bold mt-4 mb-8">
+            <h1 className="">
+               <FontAwesomeIcon icon={faFilm} className="text-red-500 mr-2 ml-4" />
+               Exxmon
+            </h1>
+            <h1 className="text-red-500">.</h1>
+         </div>
+         
          <div className="menu-header mb-4">
             <h2 className="font-bold text-gray-300 ml-4 text-sm">MENU</h2>
             <ul>
