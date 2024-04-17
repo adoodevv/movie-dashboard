@@ -77,8 +77,8 @@ const Home: React.FC = () => {
                      <p className="text-l text-gray-200">{getGenres(featuredMovie.genre_ids).toUpperCase()}</p>
                      <p className="text-white ml-4">%{Math.ceil(featuredMovie.vote_average * 10)} Match</p>
                   </div>
-                  <button className="bg-red-600 text-white py-2 px-4 rounded-lg mt-4">Watch</button>
-                  <button className="bg-gray-600 bg-opacity-50 text-white py-2 px-4 rounded-lg mt-4 ml-4">+</button>
+                  <button className="bg-red-600 text-white py-2 px-4 rounded-lg mt-4 hover:bg-red-700">Watch</button>
+                  <button className="bg-gray-600 bg-opacity-50 text-white py-2 px-4 rounded-lg mt-4 ml-4 hover:bg-gray-700">+</button>
                </div>
             </div>
          )}
