@@ -73,7 +73,9 @@ const Home: React.FC = () => {
                      <p className="text-white ml-4">%{Math.ceil(featuredMovie.vote_average * 10)} Match</p>
                   </div>
                   <button className="bg-red-600 text-white py-2 px-4 rounded-lg mt-4">Watch</button>
-                  <button className="bg-gray-600 bg-opacity-50 text-white py-2 px-4 rounded-lg mt-4 ml-4">+</button>
+                  <button className="bg-gray-600 bg-opacity-50 text-white py-2 px-4 rounded-lg mt-4 ml-4">
+                     <FontAwesomeIcon icon={faPlus} className="text-white" />
+                  </button>
                </div>
             </div>
          )}
