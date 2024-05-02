@@ -48,6 +48,11 @@ const Home: React.FC = () => {
       setFeaturedMovie(featuredMovies[newIndex]);
    };
 
+   useEffect(() => {
+   const timer = setInterval(nextMovie, 3000);
+   return () => clearInterval(timer);
+}, [featuredMovies, currentMovieIndex]);
+
    const getGenres = (genreIds: number[]) => {
       return genreIds.map(id => {
          const genre = genres.find(g => g.id === id);
