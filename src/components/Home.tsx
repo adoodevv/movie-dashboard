@@ -49,7 +49,7 @@ const Home: React.FC = () => {
    };
 
    useEffect(() => {
-   const timer = setInterval(nextMovie, 3000);
+   const timer = setInterval(nextMovie, 5000);
    return () => clearInterval(timer);
 }, [featuredMovies, currentMovieIndex]);
 
