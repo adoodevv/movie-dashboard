@@ -20,6 +20,8 @@ interface Genre {
 
 const Home: React.FC = () => {
    const [featuredMovie, setFeaturedMovie] = useState<Movie | null>(null);
+   const [featuredMovies, setFeaturedMovies] = useState<Movie[]>([]);
+   const [currentMovieIndex, setCurrentMovieIndex] = useState<number>(0);
    const [genres, setGenres] = useState<Genre[]>([]);
 
    useEffect(() => {
@@ -32,9 +34,19 @@ const Home: React.FC = () => {
       fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=8734c4766281aca839b34feac6c89390')
          .then(response => response.json())
          .then(data => {
-            setFeaturedMovie(data.results[2]);
+            setFeaturedMovies(data.results);
+            setFeaturedMovie(data.results[0]);
          });
    }, []);
+
+   const nextMovie = () => {
+      let newIndex = currentMovieIndex + 1;
+      if (newIndex >= featuredMovies.length) {
+         newIndex = 0;
+      }
+      setCurrentMovieIndex(newIndex);
+      setFeaturedMovie(featuredMovies[newIndex]);
+   };
 
    const getGenres = (genreIds: number[]) => {
       return genreIds.map(id => {
@@ -62,7 +74,7 @@ const Home: React.FC = () => {
                   className="w-full h-auto rounded-3xl"
                />
                <div className="absolute top-0 right-0 text-white p-4">
-                  <button className="bg-gray-600 bg-opacity-50 text-white px-4 py-2 rounded-full items-center hover:bg-gray-700">
+                  <button onClick={nextMovie} className="bg-gray-600 bg-opacity-50 text-white px-4 py-2 rounded-full items-center hover:bg-gray-700">
                      <FontAwesomeIcon icon={faAngleRight} className="text-white" />
                   </button>
                </div>
