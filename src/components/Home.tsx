@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import UpcomingMovies from './UpcomingMovies';
 import NowPlaying from './NowPlaying';
 
@@ -25,13 +25,13 @@ const Home: React.FC = () => {
    const [genres, setGenres] = useState<Genre[]>([]);
 
    useEffect(() => {
-      fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=8734c4766281aca839b34feac6c89390')
+      fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
          .then(response => response.json())
          .then(data => setGenres(data.genres));
    }, []);
 
    useEffect(() => {
-      fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=8734c4766281aca839b34feac6c89390')
+      fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
          .then(response => response.json())
          .then(data => {
             setFeaturedMovies(data.results);
@@ -49,9 +49,9 @@ const Home: React.FC = () => {
    };
 
    useEffect(() => {
-   const timer = setInterval(nextMovie, 5000);
-   return () => clearInterval(timer);
-}, [featuredMovies, currentMovieIndex]);
+      const timer = setInterval(nextMovie, 5000);
+      return () => clearInterval(timer);
+   }, [featuredMovies, currentMovieIndex]);
 
    const getGenres = (genreIds: number[]) => {
       return genreIds.map(id => {
@@ -76,23 +76,20 @@ const Home: React.FC = () => {
                <img
                   src={`https://image.tmdb.org/t/p/w1280${featuredMovie.backdrop_path}`}
                   alt={featuredMovie.title}
-                  className="w-full h-auto rounded-3xl"
+                  className="w-full h-48 md:h-auto object-cover rounded-3xl"
                />
-               <div className="absolute top-0 right-0 text-white p-4">
-                  <button onClick={nextMovie} className="bg-gray-600 bg-opacity-50 text-white px-4 py-2 rounded-full items-center hover:bg-gray-700">
-                     <FontAwesomeIcon icon={faAngleRight} className="text-white" />
-                  </button>
-               </div>
-               <div className="absolute bottom-0 left-0 p-4">
-                  <h2 className="text-4xl font-bold text-white">{featuredMovie.title}</h2>
-                  <div className="flex mt-2">
-                     <p className="text-l text-gray-200">{getGenres(featuredMovie.genre_ids).toUpperCase()}</p>
-                     <p className="text-white ml-4">%{Math.ceil(featuredMovie.vote_average * 10)} Match</p>
+               <div className="absolute bottom-0 left-0 p-2 md:p-4">
+                  <h2 className="text-2xl md:text-4xl font-bold text-white">{featuredMovie.title}</h2>
+                  <div className="flex flex-wrap mt-1 md:mt-2">
+                     <p className="text-sm md:text-l text-gray-200">{getGenres(featuredMovie.genre_ids).toUpperCase()}</p>
+                     <p className="text-white ml-2 md:ml-4">%{Math.ceil(featuredMovie.vote_average * 10)} Match</p>
                   </div>
-                  <button className="bg-red-600 text-white py-2 px-4 rounded-lg mt-4">Watch</button>
-                  <button className="bg-gray-600 bg-opacity-50 text-white py-2 px-4 rounded-lg mt-4 ml-4">
-                     <FontAwesomeIcon icon={faPlus} className="text-white" />
-                  </button>
+                  <div className="flex mt-2">
+                     <button className="bg-red-600 text-white py-1 md:py-2 px-3 md:px-4 rounded-lg text-sm md:text-base">Watch</button>
+                     <button className="bg-gray-600 bg-opacity-50 text-white py-1 md:py-2 px-3 md:px-4 rounded-lg ml-2 md:ml-4">
+                        <FontAwesomeIcon icon={faPlus} className="text-white" />
+                     </button>
+                  </div>
                </div>
             </div>
          )}
